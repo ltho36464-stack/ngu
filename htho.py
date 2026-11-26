@@ -13,8 +13,11 @@ if data:
     now = datetime.datetime.now()
     time_now = now.strftime("%Y-%m-%d %H:%M:%S")
     
-    # TẠO TÊN FILE THEO NGÀY GIỜ
-    filename = now.strftime("data_%Y%m%d_%H%M%S.txt")
+    # TỰ ĐỘNG TÌM SỐ THỨ TỰ TIẾP THEO (1, 2, 3...)
+    counter = 1
+    while os.path.exists(f"{counter}.txt"):
+        counter += 1
+    filename = f"{counter}.txt"
     
     total = len(data)
     line = "=" * 50
